@@ -1,7 +1,17 @@
 {
 	"name"    :"traineratwot/config",
 	"type"    :"library",
+	"minimum-stability":"stable",
 	"license" :"MIT",
+	"version"          :"1.0.0",
+	"scripts" :{
+		"up:release":"gh release create \"1.0.0\" --generate-notes"
+	},
+	"keywords"         :[
+		"config",
+		"composer-plugin",
+		"psr-4"
+	],
 	"autoload":{
 		"psr-4":{
 			"Traineratwot\\config\\":"src/"
