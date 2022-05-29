@@ -1,0 +1,19 @@
+{
+	"name"    :"traineratwot/config",
+	"type"    :"library",
+	"license" :"MIT",
+	"autoload":{
+		"psr-4":{
+			"Traineratwot\\config\\":"src/"
+		}
+	},
+	"authors" :[
+		{
+			"name" :"Kirill",
+			"email":"Traineratwot@yandex.ru"
+		}
+	],
+	"require" :{
+		"php":"^7.4||^8.0"
+	}
+}
