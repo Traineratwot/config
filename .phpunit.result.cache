@@ -1,0 +1,1 @@
+{"version":1,"defects":{"Traineratwot\\config\\ConfigOverridableTest::testSet":3,"Traineratwot\\config\\ConfigOverridableTest::testGet":3},"times":{"Traineratwot\\config\\ConfigTest::testSet":0.003,"Traineratwot\\config\\ConfigTest::testGet":0,"Traineratwot\\config\\ConfigOverridableTest::testSet":0.003,"Traineratwot\\config\\ConfigOverridableTest::testGet":0}}

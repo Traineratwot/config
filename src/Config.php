@@ -5,6 +5,7 @@
 	class Config
 	{
 		public static array $aliases = [];
+		public static array $cache   = [];
 
 		/**
 		 * @param string $name      Config key
@@ -45,17 +46,14 @@
 			if ($namespace) {
 				$namespace = strtolower($namespace);
 			}
-			$name = strtr("cc_" . $namespace . '_' . $name, [
-				'\\' => '_',
-				'/'  => '_',
-				'-'  => '_',
-				' '  => '_',
-				'*'  => '_',
-				'.'  => '_',
-				'+'  => '_',
-			]);
-			$name = preg_replace("/_+/", '_', $name);
-			return strtoupper($name);
+			if (isset($cache[$namespace][$name])) {
+				return $cache[$namespace][$name];
+			}
+			$name                     = "cc_" . $namespace . '_' . $name;
+			$name                     = preg_replace("@\W+@", '_', $name);
+			$name                     = preg_replace("/_+/", '_', $name);
+			$cache[$namespace][$name] = strtoupper($name);
+			return $cache[$namespace][$name];
 		}
 
 		/**
@@ -79,6 +77,10 @@
 				if (defined($const)) {
 					return constant($const);
 				}
+			}
+			$o = ConfigOverridable::get($name, $namespace, $default, $strict);
+			if ($o) {
+				return $o;
 			}
 			return $default;
 		}
